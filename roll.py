@@ -13,7 +13,29 @@ def roll(d,s,b):
     output = 'Roll = '
     output = output + final
     return output
-    
+
+app = falcon.API()
+
+class SlashCommand():
+    def on_get(self, req, resp):
+        resp.status, resp.body = self.get_handler()
+
+    def on_post(self, req, resp):
+        try:
+            self.data = urlparse.parse_qs(req.stream.read())
+        except:
+            self.data = None
+        resp.status, resp.body = self.post_handler()
+
+    def get_handler(self):
+        return dummy_handler()
+
+    def post_handler(self):
+        return dummy_handler()
+
+
+
+
 dpos = text.index('d')
 try: pluspos = text.index('+')
 except:
