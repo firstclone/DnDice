@@ -12,7 +12,7 @@ def roll(d,s,b):
     final = str(final)
     output = 'Roll = '
     output = output + final
-    return output
+    return falcon.HTTP_200, output
 
 app = falcon.API()
 
