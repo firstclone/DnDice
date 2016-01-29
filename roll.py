@@ -34,8 +34,7 @@ class SlashCommand():
         return dummy_handler()
 
   
-
-
+text = self.data.get("text",[""])[0]
 dpos = text.index('d')
 try: pluspos = text.index('+')
 except:
