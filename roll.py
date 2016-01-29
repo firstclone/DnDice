@@ -45,5 +45,5 @@ class DiceRoll(SlashCommand):
         return Falcon.HTTP_200, self.roll()
 
 app = falcon.API()
-roll = roll()
-app.add_route('/roll', roll)
+diceroll = DiceRoll()
+app.add_route('/roll', diceroll)
