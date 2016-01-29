@@ -1,3 +1,5 @@
+import random
+
 def top(all_dice, top_dice, sides, bonus):
     if bonus == '':
         bonus = '0'
