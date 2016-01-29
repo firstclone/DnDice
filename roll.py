@@ -33,7 +33,7 @@ class SlashCommand():
     def post_handler(self):
         return dummy_handler()
 
-
+  
 
 
 dpos = text.index('d')
