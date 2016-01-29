@@ -20,7 +20,7 @@ def roll(text):
     final = str(final)
     output = 'Roll = '
     output = output + final
-    return falcon.HTTP_200, output
+    return output
 
 class SlashCommand():
     def on_get(self, req, resp):
