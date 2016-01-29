@@ -1,14 +1,14 @@
 import random
 import json
-def roll(self):
-    dpos = self.index('d')
-    try: pluspos = self.index('+')
+def roll(text):
+    dpos = text.index('d')
+    try: pluspos = text.index('+')
     except:
-        self = self + '+0'
-        pluspos = self.index('+')
-    d = self[:dpos]
-    s = self[dpos+1:pluspos]
-    b = self[pluspos+1:]
+        text = text + '+0'
+        pluspos = text.index('+')
+    d = text[:dpos]
+    s = text[dpos+1:pluspos]
+    b = text[pluspos+1:]
     total = 0
     d = int(d)
     s = int(s)
@@ -41,8 +41,8 @@ class SlashCommand():
         
 class DiceRoll(SlashCommand):
     def post_handler(self):
-        return self.data.get("text",[""])[0]
-        return Falcon.HTTP_200, self.roll()
+        text = self.data.get("text",[""])[0]
+        return Falcon.HTTP_200, self.roll(text)
 
 app = falcon.API()
 diceroll = DiceRoll()
