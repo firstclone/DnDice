@@ -1,1 +1,10 @@
 bob-builder==0.0.5
+Cython==0.21.1
+Pygments==2.0.1
+falcon==0.1.10
+gunicorn==19.1.1
+python-dateutil==2.3
+python-mimeparse==0.1.4
+redis==2.10.3
+six==1.8.0
+wsgiref==0.1.2
