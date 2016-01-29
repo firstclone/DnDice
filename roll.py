@@ -1,6 +1,15 @@
 import random
 import json
-def roll(d,s,b):
+def roll(self):
+    text = self.data.get("text",[""])[0]
+    dpos = text.index('d')
+    try: pluspos = text.index('+')
+    except:
+        text = text + '+0'
+        pluspos = text.index('+')
+    d = text[:dpos]
+    s = text[dpos+1:pluspos]
+    b = text[pluspos+1:]
     total = 0
     d = int(d)
     s = int(s)
@@ -13,8 +22,6 @@ def roll(d,s,b):
     output = 'Roll = '
     output = output + final
     return falcon.HTTP_200, output
-
-app = falcon.API()
 
 class SlashCommand():
     def on_get(self, req, resp):
@@ -33,14 +40,6 @@ class SlashCommand():
     def post_handler(self):
         return dummy_handler()
 
-  
-text = self.data.get("text",[""])[0]
-dpos = text.index('d')
-try: pluspos = text.index('+')
-except:
-    text = text + '+0'
-    pluspos = text.index('+')
-d = text[:dpos]
-s = text[dpos+1:pluspos]
-b = text[pluspos+1:]
-roll(d,s,b)
+app = falcon.API()
+roll = roll()
+app.add_route('/roll', roll)
