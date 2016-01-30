@@ -1,7 +1,6 @@
 import random
 import json
 import falcon
-import requests
 
 
 class SlashCommand():
@@ -49,8 +48,8 @@ class DiceRoll(SlashCommand):
 	def post_handler(self):
 		return Falcon.HTTP_200, self.roll(text)
 		print output
-        	curl -X POST --data-urlencode 'payload={"text": output,}' https://hooks.slack.com/services/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	
+	
 
 app = falcon.API()
 diceroll = DiceRoll()
-app.add_route('!roll', diceroll)
+app.add_route('/roll', diceroll)
