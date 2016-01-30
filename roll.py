@@ -45,7 +45,7 @@ class DiceRoll(SlashCommand):
 		return output
 
 	def post_handler(self):
-		return Falcon.HTTP_200, self.roll('1d6+0')
+		return Falcon.HTTP_200, self.roll(text)
 	
 
 api = falcon.API()
