@@ -21,8 +21,7 @@ class SlashCommand():
         return dummy_handler()
         
 class DiceRoll(SlashCommand):
-	def roll(self):
-		text = self.data.get("text",[""])[0]
+	def roll(text):
 		dpos = text.index('d')
 		try: pluspos = text.index('+')
 		except:
@@ -46,6 +45,7 @@ class DiceRoll(SlashCommand):
 		print output
 
 	def post_handler(self):
+		text = self.data.get("text",[""])[0]
 		return Falcon.HTTP_200, self.roll(text)
 		print output
 	
