@@ -49,7 +49,20 @@ class DiceRoll(SlashCommand):
 		return Falcon.HTTP_200, self.roll(text)
 		print output
 	
+class SaveRoll(SlashCommand):
+	def post_handler(self):
+    		roll = random.randint(1,20)
+		 if roll == 1:
+        		return Falcon.HTTP_200, 'Double Fail!'
+    		if roll > 1 and roll < 10:
+        		return Falcon.HTTP_200, 'Fail'
+    		if roll > 9 and roll < 20:
+        		return Falcon.HTTP_200, 'Success'
+    		if roll == 20:
+        		return Falcon.HTTP_200, 'Critical Success! +1 HP'
 
 app = falcon.API()
 diceroll = DiceRoll()
+save = SaveRoll()
 app.add_route('/roll', diceroll)
+app.add_route('/save', save)
