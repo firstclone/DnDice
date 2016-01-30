@@ -46,10 +46,7 @@ class DiceRoll(SlashCommand):
 		print output
 
 	def post_handler(self):
-		try:
-			return Falcon.HTTP_200, self.roll(text)
-		except:
-			return 'ERROR'
+		return Falcon.HTTP_200, self.roll(text)
 		return output
 	
 
