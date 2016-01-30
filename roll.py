@@ -52,7 +52,7 @@ class DiceRoll(SlashCommand):
 class SaveRoll(SlashCommand):
 	def post_handler(self):
     		roll = random.randint(1,20)
-		 if roll == 1:
+		if roll == 1:
         		return Falcon.HTTP_200, 'Double Fail!'
     		if roll > 1 and roll < 10:
         		return Falcon.HTTP_200, 'Fail'
