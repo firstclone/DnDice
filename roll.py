@@ -50,7 +50,7 @@ class DiceRoll(SlashCommand):
 		print output
 	
 class SaveRoll(SlashCommand):
-	def post_handler(self):
+	def post_handler():
     		roll = random.randint(1,20)
 		if roll == 1:
         		return Falcon.HTTP_200, 'Double Fail!'
