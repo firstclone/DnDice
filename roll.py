@@ -47,10 +47,6 @@ class DiceRoll(SlashCommand):
 		text = self.data.get("text",[""])[0]
 		return Falcon.HTTP_200, self.roll(text)
 	
-class Test(SlashCommand):
-    def post_handler(self):
-        return falcon.HTTP_200, "potato"
-
 class SaveRoll(SlashCommand):
 	def post_handler():
     		roll = random.randint(1,20)
@@ -65,7 +61,6 @@ class SaveRoll(SlashCommand):
 
 app = falcon.API()
 diceroll = DiceRoll()
-test = Test()
 save = SaveRoll()
-app.add_route('/roll', test)
+app.add_route('/roll', diceroll)
 app.add_route('/save', save)
