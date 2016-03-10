@@ -48,23 +48,8 @@ class DiceRoll(SlashCommand):
 		return Falcon.HTTP_200, self.roll(text)
 	
 class Test(SlashCommand):
-    def get_kv(self, log_date):
-        """Gets the key / value output for the POSTed data."""
-        updt = {  
-            "slackup_notes":    self.data.get("text",[""])[0],
-            "user_name":        self.data["user_name"][0],
-            "user_id":          self.data["user_id"][0],
-            "team_id":          self.data["team_id"][0],
-            "timestamp":        log_date.isoformat(),
-            "date":             log_date.date().isoformat()
-        }
-        upkey = ':'.join([updt["team_id"], updt["user_id"], "slackup", updt["date"]])
-        return upkey, updt
-
     def post_handler(self):
-        """Handles POST requests for Slackup."""
-        k, v = self.get_kv(datetime.now())
-        return falcon.HTTP_200, v
+        return falcon.HTTP_200, "potato"
 
 class SaveRoll(SlashCommand):
 	def post_handler():
