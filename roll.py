@@ -42,12 +42,11 @@ class DiceRoll(SlashCommand):
 		output = 'Roll = '
 		output = output + final
 		return output
-		print output
 
 	def post_handler(self):
 		text = self.data.get("text",[""])[0]
-		return Falcon.HTTP_200, self.roll("1d6+0")
-		print output
+		text = "1d6+0"
+		return Falcon.HTTP_200, self.roll(text)
 	
 class SaveRoll(SlashCommand):
 	def post_handler():
