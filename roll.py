@@ -44,12 +44,20 @@ class DiceRoll(SlashCommand):
 		return output
 
 	def post_handler(self):
+		token = self.data.get("token",[""])[0]
+		if token != "tnMgP28Q3g5xvrnZt49MYzxf":
+			exit()
 		text = self.data.get("text",[""])[0]
+		url = self.data.get("response_url", [""])[0]
 		return Falcon.HTTP_200, self.roll(text)
 	
 class SaveRoll(SlashCommand):
 	def post_handler():
-    		roll = random.randint(1,20)
+    		token = self.data.get("token",[""])[0]
+		if token != "jEqLNWROyXbtJpQf1RT9c03I":
+			exit()
+		roll = random.randint(1,20)
+		url = self.data.get("response_url", [""])[0]
 		if roll == 1:
         		return Falcon.HTTP_200, 'Double Fail!'
     		if roll > 1 and roll < 10:
