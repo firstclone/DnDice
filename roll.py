@@ -1,6 +1,7 @@
 import random
 import json
 import falcon
+import requests
 
 
 class SlashCommand():
